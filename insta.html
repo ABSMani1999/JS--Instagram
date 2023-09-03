@@ -1,0 +1,581 @@
+<!doctype HTML>
+<html>
+	<head>
+		<title> Instagram </title>
+		<link rel="icon" type="image/x-icon" href="img/icon.jpg">
+		<meta charset="UTF-8">
+		<meta name="description" content=""/>
+		<meta name="keywords" content="HTML,CSS,Java script"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            *{
+                padding:0;
+                margin:0;
+                box-sizing:border-box;
+            }
+            @media(min-width:320px){
+            
+                .container{
+                    width:100%;
+                    margin:auto;
+                }
+                
+                .front-head{
+                    width:100%;
+                }
+            
+                .body-post img{
+                    width:100%;
+                }
+            }
+            @media(min-width:1000px){
+            
+                .container{
+                    width:40%;
+                    margin:auto;
+                }
+            
+                .fornt-head{
+                    width:100%;
+                }	
+            
+                .slide img{
+                    max-width:600px;
+                    height:100%;
+                }
+            
+                .body-post img{
+                    width:100%;
+                }
+            }
+            .top-logo{
+                display:flex;
+                align-items:center;
+            }
+            .top-icon{
+                font-size:35px;
+            }
+            .top-icon>i:hover{
+                cursor:pointer;
+                color:#ccc;
+            }
+            .img{
+                width: 137px;
+                height: 85px;
+            }
+            .front-top-head{
+                display:flex;
+                align-items:center;
+                justify-content:space-between;
+                position:sticky;
+                top:0;
+                left:0;
+                background-color:#fff;
+            }
+            .front-top-story{
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                background-color:black;
+                color:#fff;
+                padding:10px 0px;
+                position:relative;
+            }
+            #story{
+                position: absolute;
+                top: 0;
+                left: 30%;
+                width: 540px;
+                height: 100%;
+                background-color: #100f0fe0;
+                visibility:hidden;
+            }
+            .story-close{
+                cursor: pointer;
+                font-size: 30px;
+                position: absolute;
+                top: 10px;
+                left: 66%;
+                color: #fff;
+                visibility:hidden;
+            }
+            .front-top-profile>img{
+                width: 100px;
+                height: 100px;
+                margin: 0 30px;
+                border-radius: 50%;
+                border: 4px solid #d1a3ce;
+                cursor:pointer;
+            }
+            .front-top-profile>p{
+                display:flex;
+                justify-content:center;
+            }
+            .body-post{
+                margin-bottom:30px;
+            }
+            .post-icon{
+                display:flex;
+                justify-content:space-between;
+                font-size:30px;
+                cursor:pointer;
+            }
+            .front-footer>img{
+                width:30px;
+                height:30px;
+                border-radius:50%;
+            }
+            .front-footer>i{
+                font-size:30px;
+                margin-right:92px;
+                cursor:pointer;
+            }
+            .front-footer{
+                position:sticky;
+                bottom:0px;
+                left:0;
+                background-color:black;
+                color:#fff;
+            }
+            .bar-header{
+                display:flex;
+                align-items:center;
+                justify-content:space-around;
+                font-size:30px;
+                margin-bottom:30px;
+			}
+            .bar-header>i:hover{
+                cursor:pointer;
+                color:#ccc;
+            }
+            
+            .sider-bar-head>input{
+                width:100%;
+                border:none;
+                background-color:#cccccc70;
+                border-radius:10px;
+                padding:10px 30px;
+            }
+            
+            .bar-head-profile>img{
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                margin:10px 30px;
+            }
+            
+            .chat{
+                display:flex;
+                flex-direction:row;
+            }
+            
+            .chat img{
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                margin:10px 30px;
+            }
+            
+            .profile-name{
+                display:flex;
+                font-size:30px;
+                align-items:center;
+            }
+            
+            .chat span{
+                display: flex;
+                color: #0000ffcf;
+                margin-left: 588%;
+                font-weight: 900;
+            }
+                
+            .front-page{
+                position:relative;
+            }
+            
+            .sider-bar{
+                position: absolute;
+                top: 2%;
+                width: 40%;
+                left: 30%;
+                background-color: #fff;
+                visibility:hidden;
+            }
+            
+            .slider-wrapper{
+                width:100%;
+                overflow:hidden;
+                margin:30px 0;
+            }
+            
+            .slider{
+                width:1720px;
+                display:flex;
+                transition:all 0.5s;
+            }
+            
+            .slide>img{
+                width:100%;
+            }
+        
+            .scroll-bott-btn{
+                display:flex;
+                justify-content:space-between;
+                font-size:30px;
+                cursor:pointer;	
+            }
+            
+            .scroll-btn{
+                position: absolute;
+                top: 64%;
+                text-align: center;
+                left: 44%;
+                font-size: 30px;
+                background-color: #ccc;
+                margin-right:10px;
+            }
+            
+            .scroll-btn:hover{
+                background-color: #888484d1;
+                cursor:pointer;	
+            }      
+        </style>
+	</head>
+	<body>
+	<section>
+		<div class="container">
+			<div class="front-page">
+				<div class="front-head">
+					<div class="front-top-head">
+						<div class="top-logo">
+							<img class="img"src="img/Logo-Instagram.png">
+							<i class="bi bi-chevron-down"></i>
+						</div>
+						<div class="top-icon">
+							<i class="bi bi-suit-heart"></i>
+							<i class="bi bi-chat-dots show-msg"></i>
+						</div>
+					</div>
+					
+					<div class="front-top-story">
+						<div class="front-top-profile">
+							<img src="img/birds.jpg" />
+							<p>birds</p>
+						</div>
+
+						<div class="front-top-profile">
+							<img src="img/love.jpg" />
+							<p>love</p>
+						</div>
+						
+						<div class="front-top-profile">
+							<img src="img/mani.jpg" />
+							<p>a.b.s.mani_6</p>
+						</div>
+						
+					</div>
+				</div>
+				
+				<div class="front-body">
+					<div class="body-post">
+							<img src="img/movite.jpeg"/>
+						<div class="post-icon">
+						<div>
+							<i class="bi bi-heart"></i>
+							<i class="bi bi-chat"></i>
+							<i class="bi bi-send"></i>
+						</div>
+						<div>
+							<i class="bi bi-bookmark"></i>
+						</div>
+						</div>
+						<p>100 Likes</p>
+					</div>
+					<div class="slider-wrapper">
+						<div class="slider">
+							<div class="slide">
+								<img src="https://www.trio.dev/hubfs/Imported_Blog_Media/263a75529a1752b75d64f9f21fd07c92-3-2.jpg">
+							</div>
+							<div class="slide">
+								<img src="img/rode map.jpg">
+							</div>
+							<div class="slide">
+								<img src="img/lang.jpg">	
+							</div>
+						</div>
+						<div class="scroll-btn">
+							<i class="bi bi-chevron-compact-left scroll-prev"></i>
+							<i class="bi bi-chevron-compact-right scroll-next"></i>
+						</div>
+						<div class="scroll-bott-btn">
+							<div>
+								<i class="bi bi-heart"></i>
+								<i class="bi bi-chat"></i>
+								<i class="bi bi-send"></i>
+							</div>
+							<div>
+								<i class="bi bi-bookmark"></i>
+							</div>
+						</div>
+						<p>100 Likes</p>						
+					</div>
+					<div class="body-post">
+						<img src="img/birds_033.jpg">
+						<div class="post-icon">
+						<div>
+							<i class="bi bi-heart"></i>
+							<i class="bi bi-chat"></i>
+							<i class="bi bi-send"></i>
+						</div>
+						<div>
+							<i class="bi bi-bookmark"></i>
+						</div>
+						</div>
+						<p>200 Likes</p>
+					</div>
+				</div>
+				
+				<div class="front-footer">
+					<i class="bi bi-house-door"></i>
+					<i class="bi bi-search"></i>
+					<i class="fa fa-plus-square-o" aria-hidden="true"></i>
+					<i class="bi bi-person-video2"></i>
+					<img src="img/mani.jpg">
+				</div>
+			</div>
+			</div>
+<!-- message section -->
+			<div class="container">
+				<div class="sider-bar">
+					<div class="sider-bar-head">
+						<div class="bar-header">
+							<i class="bi bi-arrow-left close-chat-box"></i>
+							<p>a.b.s.mani_6</p>
+							<i class="bi bi-chevron-down"></i>
+							<i class="bi bi-three-dots"></i>
+							<i class="bi bi-graph-up-arrow"></i>
+							<i class="bi bi-pencil-square"></i>
+						</div>
+						<input type="text" placeholder="Search">
+						<div class="bar-head-profile">
+							<img src="img/birds.jpg">
+							<img src="img/love.jpg">
+							<img src="img/mani.jpg">
+						</div>
+					</div>
+					<div class="sider-bar-body">
+						<div class='chat'>
+							<p>Messages</p>
+							<p><span>Requests</span></p>
+						</div>
+						<div class="chat">
+								<img src="img/mani.jpg">
+							<div class="profile-name">
+								<p>a.b.s.mani_6</p>
+								<i class="bi bi-camera"></i>
+							</div>
+						</div>
+						<div class="chat">
+									<img src="img/birds_033.jpg">
+								<div class="profile-name">
+									<p>heart...</p>
+									<i class="bi bi-camera"></i>
+								</div>
+							</div>
+						<div class="chat">
+									<img src="img/CatLick.gif">
+								<div class="profile-name">
+									<p>cat</p>
+									<i class="bi bi-camera"></i>
+								</div>
+							</div>
+						<div class="chat">
+									<img src="img/love.jpg">
+								<div class="profile-name">
+									<p>love</p>
+									<i class="bi bi-camera"></i>
+								</div>
+							</div>
+						<div class="chat">
+									<img src="img/birds.jpg">
+								<div class="profile-name">	
+									<p>a.b.s.mani_6</p>
+									<i class="bi bi-camera"></i>
+								</div>
+							</div>
+						<div class="chat">
+									<img src="img/Penguins.JPG">
+							<div class="profile-name">	
+								<p>penguins</p>
+								<i class="bi bi-camera"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	
+<!-- Story -->
+			<div class="container">
+				<div class="profile-story">
+					<video controls autoplay loop id="story">
+						<source  src="img/music.mp4" type="video/mp4" />
+					</video>
+					<i class="bi bi-x-circle story-close" style="visibility:hidden;"></i>
+				</div>
+				<div class="profile-story">
+					<video controls autoplay loop id="story">
+						<source  src="img/6748256305699357185.mp4" type="video/mp4" />
+					</video>
+					<i class="bi bi-x-circle story-close" style="visibility:hidden;"></i>
+				</div>
+				<div class="profile-story">
+					<video controls autoplay loop id="story">
+						<source src="img/2019-10-25-150007507.mp4" type="video/mp4" />
+					</video>
+					<i class="bi bi-x-circle story-close" style="visibility:hidden;"></i>
+				</div>
+<!-- Profile page -->
+				<!-- <div class="container"> -->
+					<!-- <div class="profile-rows"> -->
+						<!-- <div class="profile-head"> -->
+							 <!-- <div class="profile-name"> -->
+								<!-- <p>a.b.s.mani_6</p> -->
+								<!-- <i class="bi bi-chevron-down"></i> -->
+							<!-- </div> -->
+							<!-- <div> -->
+								<!-- <i class="fa fa-plus-square-o" aria-hidden="true"></i> -->
+								<!-- <i class="fa fa-bars" aria-hidden="true"></i> -->
+							<!-- </div> -->
+						<!-- </div> -->
+						<!-- <div class="profile-details"> -->
+							<!-- <div class="profile-details-head"> -->
+								<!-- <img src="img/mani.jpg"> -->
+							<!-- <ul> -->
+								<!-- <li><h2>24</h2>Posts</li> -->
+								<!-- <li><h2>322</h2>followers</li> -->
+								<!-- <li><h2>513</h2>Following</li> -->
+							<!-- </ul> -->
+								<!-- <textarea></textarea> -->
+							<!-- </div> -->
+							<!-- <div class="btns"> -->
+								<!-- <button>Edit profile</button> -->
+								<!-- <button>Share Profile</button> -->
+								<!-- <button><i class="fa fa-user-o" aria-hidden="true"></i></button> -->
+							<!-- </div> -->
+						<!-- </div> -->
+						<!-- <div class="pofile-post"> -->
+							
+						<!-- 66 -->
+						
+						<!-- </div> -->
+					<!-- </div> -->
+				<!-- </div> -->
+		</section>
+		<script>
+            var chat = document.getElementsByClassName("show-msg")[0];
+var closeChat = document.getElementsByClassName("close-chat-box")[0];
+
+	chat.addEventListener('click',chatBox);
+	
+	function chatBox(e){
+		let parentDiv = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('.sider-bar');
+		
+		parentDiv.style.visibility = "visible";
+		let siderBarDiv = e.target.parentNode.parentNode.parentNode.parentNode;
+		siderBarDiv.style.display = "none"
+		// console.log(siderBarDiv);
+	}
+	
+	closeChat.addEventListener('click',closeChatBox);
+	
+	function closeChatBox(e){
+		let parentDiv = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('.front-page');
+		parentDiv.style.display="block";
+		
+		let siderBarDiv = e.target.parentNode.parentNode.parentNode;
+		siderBarDiv.style.visibility = "hidden"
+		
+		// console.log(siderBarDiv);
+	}
+	
+	
+//post scroll
+	var nextBtn = document.querySelector('.scroll-next');
+	var prevBtn = document.querySelector('.scroll-prev');
+	
+	nextBtn.addEventListener('click',nextPic);
+	prevBtn.addEventListener('click',prevPic);
+	
+	function nextPic(e){
+		var sliderEle = e.target.parentNode.parentNode.querySelector(".slider");
+		console.log(sliderEle);
+		
+		var marginLeft = 0;
+		if(sliderEle.style.marginLeft == '0px'){
+			sliderEle.style.marginLeft = "-540px";
+		}
+		else if(sliderEle.style.marginLeft == "-540px"){
+			sliderEle.style.marginLeft = "-1080px";
+		}
+		else{
+			sliderEle.style.marginLeft = "0px";
+		}
+	}
+
+	function prevPic (e){
+		var sliderEle = e.target.parentNode.parentNode.querySelector(".slider");
+		console.log(sliderEle);
+		
+		var marginLeft = 0;
+		if(sliderEle.style.marginLeft == '-1080px'){
+			sliderEle.style.marginLeft = "-540px";
+		}
+		else if(sliderEle.style.marginLeft == "-540px"){
+			sliderEle.style.marginLeft = "0px";
+		}
+		else{
+			sliderEle.style.marginLeft = "-1080px";
+		}
+	}
+	
+	
+//Story
+
+ // document.querySelector("#story").autoplay = fl;
+ 
+ var profile = document.querySelectorAll('.front-top-profile');
+ for (let i=0; i<profile.length; i++){
+	 
+	profile[i].addEventListener('click',function(){
+		let storyDiv = this.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.querySelectorAll('#story')[i];
+			 storyDiv.style.visibility = "visible";
+			//console.log(storyDiv)
+			closeDiv = this.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.querySelectorAll('.story-close')[i];
+			closeDiv.style.visibility = "visible";
+		
+		let forntDiv = this.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('.front-page');
+			forntDiv.style.display = "none"
+		//console.log(forntDiv);
+	});
+	
+var closeStory = document.querySelectorAll('.story-close');
+
+	closeStory[i].addEventListener('click',closeStoryTap);
+	
+	function closeStoryTap (e){
+		let storyDiv = this.parentNode.parentNode.parentNode.parentNode.querySelector('.front-page');
+			storyDiv.style.display = "block";
+		//console.log(storyDiv);
+		let forntDiv = this.parentNode.parentNode.parentNode.querySelectorAll('#story')[i];
+			forntDiv.style.visibility = "hidden"
+		//console.log(forntDiv);		
+		let closeDiv = this.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.querySelectorAll('.story-close')[i];
+			closeDiv.style.visibility = "hidden";
+	}
+ }
+        </script>
+	</body>
+</html>

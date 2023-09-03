@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Sign up Instagram</title>
+        <link rel="icon" type="image/x-icon" href="img/icon.jpg">
+        <meta charset ="utf-8">
+		<meta name="description" content=""/>
+		<meta name="keywords" content="HTML,CSS,Java script"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    </head>
+    <body>
+       <section>
+            <div class="container"> 
+                <img src="img/Logo-Instagram.png" alt="Download img">
+                <h3>Sign up to see photos and videos from your friends.</h3>
+                <a href="index.html"><i class="bi bi-facebook" style="margin-right:10px;"></i>Log in with Facebook</a>
+            <form action="" method="get">
+                <div class="mobile-no">
+                    <input type="text" class="err" placeholder="Mobile Number or Email" autocomplete="off">
+                    <p class="error-msg-1 error"><i class="bi bi-x-circle"></i></p>
+                    <p class="error-msg-2 corr"><i class="bi bi-check-circle"></i></p> 
+                </div>  
+                <div class="name">
+                    <input type="text" class="correct" placeholder="Full Name">
+                    <p class="error-msg-3 corr"><i class="bi bi-check-circle"></i></p> 
+                </div>
+                <div class="username">
+                    <input type="text" class="err" placeholder="Username">
+                    <p class="error-msg-5 error"><i class="bi bi-x-circle"></i></p>
+                    <p class="error-msg-6 corr"><i class="bi bi-check-circle"></i></p> 
+                </div>
+                <div class="password">
+                    <input type="password" class="correct" placeholder="Password">
+                    <p class="error-msg-4 corr"><i class="bi bi-check-circle"></i></p>  
+                </div>
+                <p>People who use our service may have uploaded your contact information to Instagram. Learn More</p>
+                <p>By signing up, you agree to our Terms , Privacy Policy and Cookies Policy .</p>
+                <a href="" class="sign">Sign up</a>
+            </form>
+       </section>
+    </div>
+        <div class="sub-form">
+            <p>Have an accounts? <a href="index.html">Log in</a></p>
+        </div>
+        <script>
+            var signBtn = document.querySelector(".sign");
+            var inputError = document.querySelectorAll(".err"); 
+            var inputCorr = document.querySelectorAll(".correct");
+            var error = document.querySelectorAll(".error");
+            var corr = document.querySelectorAll(".corr");
+
+signBtn.addEventListener("click", submitForm);
+    function submitForm(e){
+        e.preventDefault();
+        for(let i=0; i<10; i++){
+            var corrEle = this.parentNode.querySelector(".corr");
+            if(corrEle.classList.contains("error-corr")){
+                sessionStorage.setItem("user",JSON.stringify(user={
+                    MobileNo:inputError[0].value,
+                    UserName:inputError[1].value,
+                    FullName:inputCorr[0].value,
+                    PassWord:inputCorr[1].value,
+                }));
+                location.href="index.html";
+            }
+        }
+    }
+
+    for(let i=0; i<inputError.length; i++){
+        inputError[i].addEventListener("blur",errorInput);
+
+            function errorInput(){
+                var flag = true;
+                    if(inputError[i].value == "" || inputError[0].value.length!==10){
+                        let pEle = this.parentNode.querySelector(".error").classList.add("error-show");
+                        flag = false;
+                        var corrEle = this.parentNode.querySelector(".corr");
+                        if(corrEle.classList.contains("error-corr")){
+                            corrEle.classList.remove("error-corr");
+                            
+                        } 
+                    }
+                    else if(inputError[i].value !== "" && flag == true){
+                        let pEle = this.parentNode.querySelector(".error").classList.remove("error-show");
+                        let corrEle = this.parentNode.querySelector(".corr").classList.add("error-corr");    
+                    }
+            }
+            inputCorr[i].addEventListener("blur",corrInput);
+            
+            function corrInput(){
+                flag = true;
+                var corrEle = this.parentNode.querySelector(".corr");
+                if(corrEle.classList.contains("error-corr") && inputCorr[i].value == ""){
+                    corrEle.classList.remove("error-corr");
+                    signBtn.style.pointerEvents = "none";
+                } 
+                else if(inputCorr[i].value !== "" && flag == true){
+                    let corrEle = this.parentNode.querySelector(".corr").classList.add("error-corr");
+                    signBtn.style.pointerEvents = "all";     
+                }
+            }
+    }
+        </script>
+    </body>
+</html>
