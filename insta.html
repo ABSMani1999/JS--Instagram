@@ -30,6 +30,29 @@
                 .body-post img{
                     width:100%;
                 }
+				.front-top-profile>img{
+					width: 100px;
+					height: 100px;
+					margin: 0 0.2rem;
+					border-radius: 50%;
+					border: 4px solid #d1a3ce;
+					cursor:pointer;
+				}
+				.front-footer>i{
+					font-size:30px;
+					margin-right:2.5rem;
+					cursor:pointer;
+				}
+				#story{
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					background-color: #100f0fe0;
+					visibility:hidden;
+					cursor: pointer;
+				}
             }
             @media(min-width:1000px){
             
@@ -42,19 +65,38 @@
                     width:100%;
                 }	
             
-                .slide img{
-                    max-width:600px;
-                    height:100%;
-                }
-            
                 .body-post img{
                     width:100%;
                 }
+				.front-top-profile>img{
+					width: 100px;
+					height: 100px;
+					margin: 0 30px;
+					border-radius: 50%;
+					border: 4px solid #d1a3ce;
+					cursor:pointer;
+				}
+				.front-footer>i{
+					font-size:30px;
+					margin-right:92px;
+					cursor:pointer;
+				}
+				#story{
+					position: absolute;
+					top: 0;
+					left: 30%;
+					width: 39%;
+					height: 100%;
+					background-color: #100f0fe0;
+					visibility:hidden;
+				}
             }
+
             .top-logo{
                 display:flex;
                 align-items:center;
             }
+
             .top-icon{
                 font-size:35px;
             }
@@ -84,15 +126,7 @@
                 padding:10px 0px;
                 position:relative;
             }
-            #story{
-                position: absolute;
-                top: 0;
-                left: 30%;
-                width: 540px;
-                height: 100%;
-                background-color: #100f0fe0;
-                visibility:hidden;
-            }
+            
             .story-close{
                 cursor: pointer;
                 font-size: 30px;
@@ -102,14 +136,7 @@
                 color: #fff;
                 visibility:hidden;
             }
-            .front-top-profile>img{
-                width: 100px;
-                height: 100px;
-                margin: 0 30px;
-                border-radius: 50%;
-                border: 4px solid #d1a3ce;
-                cursor:pointer;
-            }
+            
             .front-top-profile>p{
                 display:flex;
                 justify-content:center;
@@ -128,11 +155,7 @@
                 height:30px;
                 border-radius:50%;
             }
-            .front-footer>i{
-                font-size:30px;
-                margin-right:92px;
-                cursor:pointer;
-            }
+            
             .front-footer{
                 position:sticky;
                 bottom:0px;
@@ -205,43 +228,6 @@
                 visibility:hidden;
             }
             
-            .slider-wrapper{
-                width:100%;
-                overflow:hidden;
-                margin:30px 0;
-            }
-            
-            .slider{
-                width:1720px;
-                display:flex;
-                transition:all 0.5s;
-            }
-            
-            .slide>img{
-                width:100%;
-            }
-        
-            .scroll-bott-btn{
-                display:flex;
-                justify-content:space-between;
-                font-size:30px;
-                cursor:pointer;	
-            }
-            
-            .scroll-btn{
-                position: absolute;
-                top: 64%;
-                text-align: center;
-                left: 44%;
-                font-size: 30px;
-                background-color: #ccc;
-                margin-right:10px;
-            }
-            
-            .scroll-btn:hover{
-                background-color: #888484d1;
-                cursor:pointer;	
-            }      
         </style>
 	</head>
 	<body>
@@ -293,34 +279,6 @@
 						</div>
 						</div>
 						<p>100 Likes</p>
-					</div>
-					<div class="slider-wrapper">
-						<div class="slider">
-							<div class="slide">
-								<img src="https://www.trio.dev/hubfs/Imported_Blog_Media/263a75529a1752b75d64f9f21fd07c92-3-2.jpg">
-							</div>
-							<div class="slide">
-								<img src="img/rode map.jpg">
-							</div>
-							<div class="slide">
-								<img src="img/lang.jpg">	
-							</div>
-						</div>
-						<div class="scroll-btn">
-							<i class="bi bi-chevron-compact-left scroll-prev"></i>
-							<i class="bi bi-chevron-compact-right scroll-next"></i>
-						</div>
-						<div class="scroll-bott-btn">
-							<div>
-								<i class="bi bi-heart"></i>
-								<i class="bi bi-chat"></i>
-								<i class="bi bi-send"></i>
-							</div>
-							<div>
-								<i class="bi bi-bookmark"></i>
-							</div>
-						</div>
-						<p>100 Likes</p>						
 					</div>
 					<div class="body-post">
 						<img src="img/birds_033.jpg">
@@ -420,23 +378,24 @@
 <!-- Story -->
 			<div class="container">
 				<div class="profile-story">
-					<video controls autoplay loop id="story">
+					<video controls id="story">
 						<source  src="img/music.mp4" type="video/mp4" />
 					</video>
 					<i class="bi bi-x-circle story-close" style="visibility:hidden;"></i>
 				</div>
 				<div class="profile-story">
-					<video controls autoplay loop id="story">
+					<video controls id="story">
 						<source  src="img/6748256305699357185.mp4" type="video/mp4" />
 					</video>
 					<i class="bi bi-x-circle story-close" style="visibility:hidden;"></i>
 				</div>
 				<div class="profile-story">
-					<video controls autoplay loop id="story">
+					<video controls id="story">
 						<source src="img/2019-10-25-150007507.mp4" type="video/mp4" />
 					</video>
 					<i class="bi bi-x-circle story-close" style="visibility:hidden;"></i>
 				</div>
+			</div>
 <!-- Profile page -->
 				<!-- <div class="container"> -->
 					<!-- <div class="profile-rows"> -->
@@ -476,7 +435,7 @@
 		</section>
 		<script>
             var chat = document.getElementsByClassName("show-msg")[0];
-var closeChat = document.getElementsByClassName("close-chat-box")[0];
+			var closeChat = document.getElementsByClassName("close-chat-box")[0];
 
 	chat.addEventListener('click',chatBox);
 	
@@ -501,50 +460,8 @@ var closeChat = document.getElementsByClassName("close-chat-box")[0];
 		// console.log(siderBarDiv);
 	}
 	
-	
-//post scroll
-	var nextBtn = document.querySelector('.scroll-next');
-	var prevBtn = document.querySelector('.scroll-prev');
-	
-	nextBtn.addEventListener('click',nextPic);
-	prevBtn.addEventListener('click',prevPic);
-	
-	function nextPic(e){
-		var sliderEle = e.target.parentNode.parentNode.querySelector(".slider");
-		console.log(sliderEle);
-		
-		var marginLeft = 0;
-		if(sliderEle.style.marginLeft == '0px'){
-			sliderEle.style.marginLeft = "-540px";
-		}
-		else if(sliderEle.style.marginLeft == "-540px"){
-			sliderEle.style.marginLeft = "-1080px";
-		}
-		else{
-			sliderEle.style.marginLeft = "0px";
-		}
-	}
-
-	function prevPic (e){
-		var sliderEle = e.target.parentNode.parentNode.querySelector(".slider");
-		console.log(sliderEle);
-		
-		var marginLeft = 0;
-		if(sliderEle.style.marginLeft == '-1080px'){
-			sliderEle.style.marginLeft = "-540px";
-		}
-		else if(sliderEle.style.marginLeft == "-540px"){
-			sliderEle.style.marginLeft = "0px";
-		}
-		else{
-			sliderEle.style.marginLeft = "-1080px";
-		}
-	}
-	
-	
 //Story
 
- // document.querySelector("#story").autoplay = fl;
  
  var profile = document.querySelectorAll('.front-top-profile');
  for (let i=0; i<profile.length; i++){
@@ -552,6 +469,7 @@ var closeChat = document.getElementsByClassName("close-chat-box")[0];
 	profile[i].addEventListener('click',function(){
 		let storyDiv = this.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.querySelectorAll('#story')[i];
 			 storyDiv.style.visibility = "visible";
+			 storyDiv.play();
 			//console.log(storyDiv)
 			closeDiv = this.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.querySelectorAll('.story-close')[i];
 			closeDiv.style.visibility = "visible";
@@ -568,9 +486,10 @@ var closeStory = document.querySelectorAll('.story-close');
 	function closeStoryTap (e){
 		let storyDiv = this.parentNode.parentNode.parentNode.parentNode.querySelector('.front-page');
 			storyDiv.style.display = "block";
-		//console.log(storyDiv);
-		let forntDiv = this.parentNode.parentNode.parentNode.querySelectorAll('#story')[i];
+			//console.log(storyDiv);
+			let forntDiv = this.parentNode.parentNode.parentNode.querySelectorAll('#story')[i];
 			forntDiv.style.visibility = "hidden"
+			forntDiv.pause();
 		//console.log(forntDiv);		
 		let closeDiv = this.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.querySelectorAll('.story-close')[i];
 			closeDiv.style.visibility = "hidden";
